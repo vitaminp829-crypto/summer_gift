@@ -1,0 +1,50 @@
+:root{
+  --duration:240s;
+  --gift-height:210px;
+  --gap:48px;
+}
+*{box-sizing:border-box}
+html,body{
+  margin:0;
+  width:100%;
+  height:100%;
+  background:transparent !important;
+  overflow:hidden;
+}
+body{
+  display:flex;
+  align-items:center;
+}
+.marquee{
+  width:100%;
+  overflow:hidden;
+  background:transparent;
+}
+.track{
+  display:flex;
+  width:max-content;
+  will-change:transform;
+  animation:flow var(--duration) linear infinite;
+}
+.set{
+  display:flex;
+  align-items:center;
+  flex:none;
+  gap:var(--gap);
+  padding-right:var(--gap);
+}
+.set img{
+  display:block;
+  flex:none;
+  width:auto;
+  height:var(--gift-height);
+  max-width:none;
+  object-fit:contain;
+}
+@keyframes flow{
+  from{transform:translateX(0)}
+  to{transform:translateX(-50%)}
+}
+@media (prefers-reduced-motion: reduce){
+  .track{animation:flow var(--duration) linear infinite}
+}
